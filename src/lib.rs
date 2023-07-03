@@ -40,8 +40,9 @@ enum Route {
 
 #[event(fetch)]
 async fn main(req: Request, env: Env, _ctx: Context) -> Result<Response> {
+    
     let router = Router::new();
-
+    
     router
     .get_async(Route::Auth.to_str(), auth::handler)
     .get_async(Route::User.to_str(), user::handler)
